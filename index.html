@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Galva Technovision</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #122e57;
+            --accent-color: #111dff;
+            --text-dark: #1b1b1b;
+            --text-light: #464646;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(18, 46, 87, 0.8), rgba(18, 46, 87, 0.8)), url('jam.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 0;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.3s;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.6s;
+        }
+
+        .hero-btn {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.9s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-custom {
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e5aa1b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(246, 185, 34, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* About Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -15px;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-content strong {
+            color: var(--primary-color);
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 70px;
+            height: 70px;
+            border-top: 5px solid var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            z-index: 1;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 70px;
+            height: 70px;
+            border-bottom: 5px solid var(--accent-color);
+            border-right: 5px solid var(--accent-color);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            height: 90%;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card:hover::before {
+            width: 100%;
+            background-color: rgba(246, 185, 34, 0.1);
+        }
+
+        .about-card-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(246, 185, 34, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover .about-card-icon {
+            background-color: var(--white);
+            box-shadow: 0 10px 20px rgba(246, 185, 34, 0.2);
+        }
+
+        .about-card-icon i {
+            font-size: 1.7rem;
+            color: var(--accent-color);
+        }
+
+        .about-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: inline-block;
+            }
+            
+            .about-image {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section (Jumbotron) -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Your Health, Our Innovation</h1>
+                    <p>PT Galva Technovision provides comprehensive document management solutions with the highest quality standards and cutting-edge technology to optimize your business operations.</p>
+                    <div class="hero-btn">
+                        <a href="#contact" class="btn btn-primary btn-custom">Contact Us</a>
+                        <a href="#about" class="btn btn-outline btn-custom">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="jam.jpg" alt="Team meeting" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                       <p><strong>PT Tata Layak Prawira (Xprins TLP)</strong> didirikan pada tahun 1997 di Kemayoran, Jakarta Pusat. <strong>Xprins TLP</strong> adalah perusahaan yang bergerak di bidang teknologi informasi dan layanan wearble, khususnya untuk Digital Variable Data Printing.</p>
+                        <p>Saat ini kami telah menjadi <strong>PT Galva Technovision (GTV)</strong>, salah satu anak perusahaan dari <strong>Galva Group</strong>. Sejak bergabung pada awal tahun 2021, <strong>GTV</strong> dapat melayani berbagai kebutuhanlayanan wearble sesuai dengan standar tingkat layanan yang diinginkan pelanggan. <strong>GTV</strong> akan memberikan solusi untuk mengoptimalkan clayanan wearble di perusahaan Anda (instansi pemerintah/swasta, yayasan, kampus/sekolah, dan lainnya).</p>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Visi</h3>
+                        <p>Menjadi perusahaan teknologi informasi terdepan yang menghadirkan solusi wearable inovatif untuk mendukung kesehatan dan gaya hidup cerdas masyarakat.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Misi</h3>
+                        <p>1. Mengembangkan produk wearable seperti smartwatch dengan teknologi akurat dan mudah digunakan.</p>
+                        <p>2. Menyediakan layanan teknologi yang responsif, modern, dan dapat meningkatkan kualitas hidup pengguna.</p>
+                        <p>3. Mengoptimalkan pengalaman pengguna melalui desain yang stylish dan fitur lengkap.</p>
+                        <p>4. Membangun hubungan yang kuat dengan pelanggan melalui inovasi dan pelayanan terbaik dari website kami.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
