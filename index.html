@@ -3,305 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Galva Technovision</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <style>
-        :root {
-            --primary-color: #122e57;
-            --accent-color: #111dff;
-            --text-dark: #1b1b1b;
-            --text-light: #464646;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(18, 46, 87, 0.8), rgba(18, 46, 87, 0.8)), url('jam.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, var(--bg-light), transparent);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem 0;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards 0.3s;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards 0.6s;
-        }
-
-        .hero-btn {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s forwards 0.9s;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn-custom {
-            padding: 0.8rem 2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: var(--text-dark);
-        }
-
-        .btn-primary:hover {
-            background-color: #e5aa1b;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(246, 185, 34, 0.3);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            margin-left: 1rem;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* About Section */
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            position: relative;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 4px;
-            background-color: var(--accent-color);
-            bottom: -15px;
-            left: 15%;
-            border-radius: 2px;
-        }
-
-        .about-content p {
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .about-content strong {
-            color: var(--primary-color);
-        }
-
-        .about-image {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 70px;
-            height: 70px;
-            border-top: 5px solid var(--accent-color);
-            border-left: 5px solid var(--accent-color);
-            z-index: 1;
-        }
-
-        .about-image::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            width: 70px;
-            height: 70px;
-            border-bottom: 5px solid var(--accent-color);
-            border-right: 5px solid var(--accent-color);
-            z-index: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-card {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin-top: 2rem;
-            height: 90%;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background-color: var(--accent-color);
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-card:hover::before {
-            width: 100%;
-            background-color: rgba(246, 185, 34, 0.1);
-        }
-
-        .about-card-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(246, 185, 34, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .about-card:hover .about-card-icon {
-            background-color: var(--white);
-            box-shadow: 0 10px 20px rgba(246, 185, 34, 0.2);
-        }
-
-        .about-card-icon i {
-            font-size: 1.7rem;
-            color: var(--accent-color);
-        }
-
-        .about-card h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .about-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 0;
-            font-size: 1.05rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 1rem;
-                display: inline-block;
-            }
-            
-            .about-image {
-                margin-bottom: 2rem;
-            }
-        }
-    </style>
+    <title>TechnoWatch</title>
+    <link rel="stylesheet" href="home.css">
+    <!-- FONT AWESOME CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Hero Section (Jumbotron) -->
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow p-3 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">TechnoWatch</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+
+        <!-- Dropdown with icon -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="layanan.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services <i class="bi bi-chevron-down ms-1"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="layanan1.html">Pemantauan Kesehatan</a></li>
+            <li><a class="dropdown-item" href="layanan2.html">Pelacak Akivitas</a></li>
+            <li><a class="dropdown-item" href="layanan3.html">Fitur Pintar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="team.html">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Search + Icon Buttons -->
+      <div class="d-flex align-items-center gap-3">
+        <form class="d-flex" role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+        </form>
+
+        <!-- Icon Buttons -->
+       <!-- Tombol Register dan Login -->
+<a class="text-primary fs-4" title="Register" data-bs-toggle="modal" data-bs-target="#RegistrasiModal">
+  <i class="bi bi-person-plus"></i>
+</a>
+
+<a class="text-primary fs-4" title="Login" data-bs-toggle="modal" data-bs-target="#loginModal">
+  <i class="bi bi-person-fill-lock"></i>
+</a>
+
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="loginForm" onsubmit="event.preventDefault(); loginSubmit();">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login Pengunjung</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email atau Username</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="text" class="form-control" id="loginEmail" name="email" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Kata Sandi</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock"></i></span>
+              <input type="password" class="form-control" id="loginPassword" name="password" required>
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="loginRemember" name="remember">
+            <label class="form-check-label" for="loginRemember">Ingat saya</label>
+          </div>
+          <div class="text-center mb-3">
+            <p class="mb-0">Belum punya akun? 
+              <a href="#" data-bs-toggle="modal" data-bs-target="#RegistrasiModal" data-bs-dismiss="modal">Daftar di sini</a>
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Registrasi -->
+<div class="modal fade" id="RegistrasiModal" tabindex="-1" aria-labelledby="RegistrasiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form id="registerForm" onsubmit="event.preventDefault(); registerSubmit();">
+        <div class="modal-header">
+          <h5 class="modal-title" id="RegistrasiModalLabel">Registrasi Pengunjung</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="registerNama" class="form-label">Nama Lengkap</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input type="text" class="form-control" id="registerNama" name="nama" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="registerEmail" name="email" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="registerTelepon" class="form-label">Nomor Telepon</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-phone"></i></span>
+              <input type="tel" class="form-control" id="registerTelepon" name="telepon" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Kata Sandi</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+              <input type="password" class="form-control" id="registerPassword" name="password" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="registerKonfirmasiPassword" class="form-label">Konfirmasi Kata Sandi</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+              <input type="password" class="form-control" id="registerKonfirmasiPassword" name="konfirmasi_password" required>
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="registerAgree" name="agree" required>
+            <label class="form-check-label" for="registerAgree">
+              Saya menyetujui <a href="#">syarat dan ketentuan</a> yang berlaku
+            </label>
+            <p class="mb-0">Sudah punya akun? 
+              <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Daftar di sini</a>
+            </p>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Daftar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+
+  <!-- Hero Section (Jumbotron) -->
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="row">
@@ -309,8 +196,8 @@
                     <h1>Your Health, Our Innovation</h1>
                     <p>PT Galva Technovision provides comprehensive document management solutions with the highest quality standards and cutting-edge technology to optimize your business operations.</p>
                     <div class="hero-btn">
-                        <a href="#contact" class="btn btn-primary btn-custom">Contact Us</a>
-                        <a href="#about" class="btn btn-outline btn-custom">Learn More</a>
+                        <a href="#kontak" class="btn btn-primary btn-custom">Contact Us</a>
+                        <a href="about.html" class="btn btn-outline btn-custom">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -364,8 +251,127 @@
         </div>
     </section>
 
-    <!-- Bootstrap & jQuery JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+     <section class="services-section">
+    <div class="container">
+      <div class="row gy-5 gx-4 justify-content-center">
+
+        <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up">
+          <div class="service-box">
+            <img src="jam4.jpg" alt="Variable Printing" class="service-image" />
+            <div class="info-card">
+              <h3>Pemantauan Kesehatan Real-Time</h3>
+              <p><strong>Technowatch</strong> Pantau kondisi tubuh Anda secara menyeluruh dengan fitur real-time seperti detak jantung, kualitas tidur, tingkat stres, dan laporan kesehatan harian yang terintegrasi langsung ke aplikasi smartphone.</p>
+              <a href="layanan1.html" class="read-more">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up">
+          <div class="service-box">
+            <img src="jam5.jpg" alt="Variable Printing" class="service-image" />
+            <div class="info-card">
+              <h3>Pelacakan Aktivitas & Kebugaran</h3>
+              <p><strong>Technowatch</strong> Catat setiap langkah dan kalori yang terbakar! Dilengkapi mode olahraga seperti lari, yoga, hingga bersepeda, perangkat kami membantu Anda tetap aktif dan sehat setiap hari.</p>
+              <a href="layanan2.html" class="read-more">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-box">
+            <img src="jam6.jpg" alt="Document Imaging" class="service-image" />
+            <div class="info-card">
+              <h3>Fitur Pintar & Dukungan Gaya Hidup</h3>
+              <p><strong>Technowatch</strong> Nikmati kemudahan dalam hidup modern dengan notifikasi instan, pengingat minum air, alarm pintar, serta desain stylish yang nyaman dipakai sepanjang hari dan sinkronisasi penuh dengan perangkat Anda.</p>
+              <a href="layanan3.html" class="read-more">READ MORE</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+   <!-- Our Team -->
+ 
+<!-- Contact Us -->
+  
+<footer style="background-color: #2a6f9d;" class="text-white pt-5">
+  <div class="container px-5">
+    <div class="row">
+      <div class="col-6 col-lg-4">
+        <h3 class="fw-bold">TechnoWatch</h3>
+        <p class="pt-2">Inovasi jam tangan pintar untuk hidup sehat dan terhubung.</p>
+        <p class="mb-2">Email: support@technowatch.com</p>
+        <p>Phone: +62 812 3456 7890</p>
+      </div>
+      <div class="col">
+        <h4>Menu</h4>
+        <ul class="list-unstyled pt-2">
+          <li class="py-1"><a href="#home" class="text-white text-decoration-none">Home</a></li>
+          <li class="py-1"><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+          <li class="py-1"><a href="#our-team" class="text-white text-decoration-none">Team</a></li>
+          <li class="py-1"><a href="#kontak" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Services</h4>
+        <ul class="list-unstyled pt-2">
+          <li class="py-1"><a href="layanan1.html" class="text-white text-decoration-none">Pemantauan Kesehatan</a></li>
+          <li class="py-1"><a href="layanan2.html" class="text-white text-decoration-none">Pelacak Aktivitas</a></li>
+          <li class="py-1"><a href="layanan3.html" class="text-white text-decoration-none">Fitur Pintar</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Support</h4>
+        <ul class="list-unstyled pt-2">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3 text-lg-end">
+        <h4>Follow Us</h4>
+        <div class="social-media pt-2">
+          <a href="#" class="text-light fs-2 me-3"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#" class="text-light fs-2 me-3"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="#" class="text-light fs-2 me-3"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="text-light fs-2"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="d-sm-flex justify-content-between py-1">
+      <p>2025 © TechnoWatch. All Rights Reserved.</p>
+      <p>
+        <a href="#" class="text-light text-decoration-none pe-4">Terms of Use</a>
+        <a href="#" class="text-light text-decoration-none">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function loginSubmit() {
+    // Contoh proses login dummy
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    alert(`Login dengan email: ${email}\nPassword: ${password}`);
+    // Setelah login berhasil, tutup modal
+    const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+    loginModal.hide();
+  }
+
+  function registerSubmit() {
+    // Contoh proses registrasi dummy
+    const nama = document.getElementById('registerNama').value;
+    const email = document.getElementById('registerEmail').value;
+    alert(`Registrasi dengan nama: ${nama}\nEmail: ${email}`);
+    // Setelah registrasi berhasil, tutup modal
+    const registerModal = bootstrap.Modal.getInstance(document.getElementById('RegistrasiModal'));
+    registerModal.hide();
+  }
+</script>
+  <script src="home.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

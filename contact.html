@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hubungi Kami - technowatch</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap Icons & Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"/>
+ <link rel="stylesheet" href="home.css">
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #0074b7;
+      --secondary-color: #00a1e4;
+      --accent-color: #ffc045;
+      --text-dark: #2d3748;
+      --text-light: #4a5568;
+      --light-color: #f0f7ff;
+      --white: #ffffff;
+      --gray-light: #f8f9fa;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--gray-light);
+      color: var(--text-light);
+    }
+
+    .contact-section {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      height: 4px;
+      width: 60px;
+      background: var(--accent-color);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-box {
+      display: flex;
+      margin-bottom: 30px;
+      align-items: flex-start;
+      transition: var(--transition);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .info-box:hover {
+      background-color: var(--light-color);
+      box-shadow: var(--shadow);
+    }
+
+    .info-box i {
+      font-size: 1.5rem;
+      margin-right: 20px;
+      background: var(--light-color);
+      color: var(--primary-color);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .info-box:hover i {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: rotate(360deg);
+    }
+
+    .info-box h4 {
+      margin: 0 0 5px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background: var(--light-color);
+      color: var(--primary-color);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 116, 183, 0.3);
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .contact-form:hover {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form .form-control {
+      border-radius: 10px;
+      border: 1px solid #e1e1e1;
+      padding: 12px 20px;
+      transition: var(--transition);
+    }
+
+    .contact-form .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: none;
+    }
+
+    .contact-form textarea.form-control {
+      min-height: 140px;
+      resize: none;
+    }
+
+    .btn-submit {
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: 600;
+      width: 100%;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 100%;
+      background: var(--secondary-color);
+      border-radius: 50px;
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .btn-submit:hover::before {
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 116, 183, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-white shadow p-3 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">TechnoWatch</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+
+        <!-- Dropdown with icon -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="layanan.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services <i class="bi bi-chevron-down ms-1"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="layanan1.html">Pemantauan Kesehatan</a></li>
+            <li><a class="dropdown-item" href="layanan2.html">Pelacak Akivitas</a></li>
+            <li><a class="dropdown-item" href="layanan3.html">Fitur Pintar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="team.html">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+      </ul>
+
+      <!-- Search + Icon Buttons -->
+      <div class="d-flex align-items-center gap-3">
+        <form class="d-flex" role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+        </form>
+
+        <!-- Icon Buttons -->
+       
+        <a href="register.html" class="text-primary fs-4" title="Register">
+          <i class="bi bi-person-plus"></i>
+           <a href="login.html" class="text-primary fs-4" title="Login">
+       <i class="bi bi-person-fill-lock"></i>
+        </a>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="contact-section" id="kontak">
+  <div class="container">
+    <div class="row">
+      <!-- Contact Info -->
+      <div class="col-md-6">
+        <h2>Hubungi Kami</h2>
+        <div class="divider"></div>
+        <p>Tertarik dengan fitur pemantauan kesehatan real-time, pelacakan aktivitas harian, atau gaya hidup pintar Smartwatch dari Technowatch? Hubungi kami sekarang untuk informasi lebih lanjut, konsultasi produk, atau dukungan pelanggan. Tim kami siap membantu Anda menemukan solusi smartwatch yang tepat.</p>
+
+        <div class="info-box">
+          <i class="bi bi-geo-alt"></i>
+          <div>
+            <h4>Lokasi:</h4>
+            <p>Jl. Merdeka No. 123, Jakarta Selatan, Indonesia</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <i class="bi bi-envelope"></i>
+          <div>
+            <h4>Email:</h4>
+            <p>info@technowatch.com</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <i class="bi bi-phone"></i>
+          <div>
+            <h4>Telepon:</h4>
+            <p>+62 815 654321</p>
+          </div>
+        </div>
+
+        <div class="social-links mt-4">
+          <a href="https://www.tiktok.com/@diskominfokpb?_t=ZS-8wLvcQg8wnk&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/pemkabpesisirbarat?igsh=MW5pZjd5YTlxb2IzYg==" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://pesisirbaratkab.go.id/" target="_blank"><i class="bi bi-globe"></i></a>
+          <a href="https://youtube.com/@pemkabpesisirbarat?si=w53h9GHvGL-DQeAW" target="_blank"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-md-6">
+        <form action="https://formspree.io/f/movdpvkq" method="POST">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="nama" name="nama" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="subjek" class="form-label">Subjek</label>
+            <input type="text" class="form-control" id="subjek" name="subjek" required>
+          </div>
+          <div class="mb-3">
+            <label for="pesan" class="form-label">Pesan</label>
+            <textarea class="form-control" id="pesan" name="pesan" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
